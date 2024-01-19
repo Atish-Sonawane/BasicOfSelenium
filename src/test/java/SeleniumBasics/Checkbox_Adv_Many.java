@@ -21,7 +21,7 @@ public class Checkbox_Adv_Many {
       driver = new ChromeDriver();
       driver.get("https://cosmocode.io/automation-practice-webtable/");
       driver.manage().window().maximize();
-      driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
    }
 
    public static boolean isArray(String[] countries, String searchString) {

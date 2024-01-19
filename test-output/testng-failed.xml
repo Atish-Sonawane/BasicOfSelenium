@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SeleniumBasics.Alert_And_Popup">
+      <class name="SeleniumBasics.RadioButton">
         <methods>
-          <include name="test"/>
-          <include name="setuup"/>
           <include name="teardown"/>
+          <include name="test"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- SeleniumBasics.Alert_And_Popup -->
+      </class> <!-- SeleniumBasics.RadioButton -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

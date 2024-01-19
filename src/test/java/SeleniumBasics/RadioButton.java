@@ -4,12 +4,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class checkbox {
+public class RadioButton {
    WebDriver driver;
 
    @BeforeTest
@@ -21,16 +22,26 @@ public class checkbox {
    }
 
    @Test
-   public void test() {
-      boolean ba = driver.findElement(By.name("language_java")).isSelected();
-      System.out.println(ba);
-      driver.findElement(By.name("language_java")).click();
-      boolean ba1 = driver.findElement(By.name("language_java")).isSelected();
-      System.out.println(ba1);
+   public void test() throws InterruptedException {
+      WebElement male = driver.findElement(By.xpath("//input[@name='gender' and @value='Male']"));
+      WebElement female = driver.findElement(By.xpath("//input[@name='gender' and @value='Female']"));
+      
+      if(male.isEnabled()) {
+    	  male.click();
+    	  System.out.println("select male");
+      }
+      
+      Thread.sleep(2000);
+      
+      if(female.isSelected()==false) {
+    	  female.click();
+    	  System.out.println("select female");
+      }
+      
    }
-
+   
    @AfterTest
    public void teardown() {
-      driver.close();
+       driver.close();
    }
 }

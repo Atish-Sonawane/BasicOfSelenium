@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Setupall {
+public class Z_Setupall {
    WebDriver driver;
 
    @BeforeTest
@@ -16,7 +16,8 @@ public class Setupall {
       WebDriverManager.chromedriver().setup();
       driver = new ChromeDriver();
       driver.get("");
-      driver.manage().timeouts().implicitlyWait(2L, TimeUnit.SECONDS);
+      //driver.manage().window().maximize();
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
    }
 
    @Test
@@ -25,6 +26,6 @@ public class Setupall {
 
    @AfterTest
    public void teardown() {
-      driver.close();
+      //driver.close();
    }
 }

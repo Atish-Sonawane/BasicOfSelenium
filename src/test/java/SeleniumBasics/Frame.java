@@ -9,28 +9,28 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Alert_And_Popup {
+public class Frame {
    WebDriver driver;
 
    @BeforeTest
    public void setuup() {
       WebDriverManager.chromedriver().setup();
       driver = new ChromeDriver();
-      driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_prompt");
-      driver.manage().window().maximize();
+      driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+      //driver.manage().window().maximize();
       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
    }
 
    @Test
    public void test() throws InterruptedException {
+	  
       driver.switchTo().frame("iframeResult");
-      driver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
-      driver.findElement(By.xpath("//button[@onclick = \"myFunction()\"]")).click();
-      driver.switchTo().alert().sendKeys("Testerme");
-      Thread.sleep(3000);
+      driver.findElement(By.xpath("// button[@onclick = 'myFunction()']")).click();
+      String alertText = driver.switchTo().alert().getText();
+      System.out.println(alertText);
       driver.switchTo().alert().accept();
       driver.switchTo().parentFrame();
-      System.out.println(driver.getTitle());
+      driver.getTitle();    
    }
 
    @AfterTest
